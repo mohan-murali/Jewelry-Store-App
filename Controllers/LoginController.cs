@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Jewelry_Store_App.Models;
 using Jewelry_Store_App.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +16,10 @@ namespace Jewelry_Store_App.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post(Login login)
         {
-
-            return Ok();
+            var result = await _loginService.LoginUser(login);
+            return Ok(result);
         }
     }
 }

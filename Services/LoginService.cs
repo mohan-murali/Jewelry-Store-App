@@ -1,18 +1,18 @@
+using System.Threading.Tasks;
 using Jewelry_Store_App.Models;
 
 namespace Jewelry_Store_App.Services
 {
     public interface ILoginService
     {
-        public User LoginUser(string email, string password);
-
+        public Task<User> LoginUser(Login login);
     }
 
     public class LoginService : ILoginService
     {
-        public User LoginUser(string email, string password)
+        public async Task<User> LoginUser(Login login)
         {
-            if(email == "abc@gmail.com" && password == "abc"){
+            if(login.Email == "abc@gmail.com" && login.Password == "abc"){
                 return new User{
                     Id=1,
                     Name="ABC",
@@ -20,7 +20,7 @@ namespace Jewelry_Store_App.Services
                 };
             }
 
-            if(email== "xyz@gmail.com" && password == "xyz"){
+            if(login.Email== "xyz@gmail.com" && login.Password == "xyz"){
                 return new User{
                     Id=1,
                     Name="XYZ",

@@ -1,3 +1,4 @@
+using Jewelry_Store_App.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +23,8 @@ namespace Jewelry_Store_App
         {
 
             services.AddControllersWithViews();
+
+            services.AddSingleton<ILoginService, LoginService>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
